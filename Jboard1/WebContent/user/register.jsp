@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
-    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="/Jboard1/css/style.css"/>
 </head>
 <body>
     <div id="wrapper">

@@ -1,4 +1,24 @@
+<%@page import="kr.co.jboard1.dao.ArticleDao"%>
+<%@page import="kr.co.jboard1.bean.ArticleBean"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% 
+
+	//파라미터 수신
+	request.setCharacterEncoding("UTF-8");
+	String seq = request.getParameter("seq");
+	
+	//조회수 업데이터
+	ArticleDao.getInstance().updateHit(seq);
+	//조회글 가져오기
+	ArticleBean ab = ArticleDao.getInstance().selectArticle(seq);
+
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +33,9 @@
             <table>
                 <tr>
                     <td>제목</td>
-                    <td><input type="text" name="title" value="제목입니다." readonly/></td>
+                    <td><input type="text" name="title" value="<%=ab.getTitle() %>" readonly/></td>
                 </tr>
+                <%if(ab.getFile() != 0){ %>
                 <tr>
                     <td>첨부파일</td>
                     <td>
@@ -22,22 +43,24 @@
                         <span>7회 다운로드</span>
                     </td>
                 </tr>
+                <%} %>
                 <tr>
                     <td>내용</td>
                     <td>
-                        <textarea name="content" readonly>내용 샘플입니다.</textarea>
+                        <textarea name="content" readonly><%=ab.getContent() %></textarea>
                     </td>
                 </tr>
             </table>
             <div>
-                <a href="#" class="btnDelete">삭제</a>
-                <a href="./modify.html" class="btnModify">수정</a>
-                <a href="./list.html" class="btnList">목록</a>
+                <a href="/Jboard1/proc/delete.jsp?seq=<%=ab.getSeq() %>" class="btnDelete">삭제</a>
+                <a href="/Jboard1/modify.jsp?seq=<%=ab.getSeq() %>" class="btnModify">수정</a>
+                <a href="/Jboard1/list.jsp" class="btnList">목록</a>
             </div>  
             
             <!-- 댓글리스트 -->
             <section class="commentList">
                 <h3>댓글목록</h3>
+                <%if(ab.getComment() > 0){ %>
                 <article class="comment">
                     <span>
                         <span>길동이</span>
@@ -49,9 +72,11 @@
                         <a href="#">수정</a>
                     </div>
                 </article>
+                <%}else{ %>
                 <p class="empty">
                     등록된 댓글이 없습니다.
                 </p>
+                <%} %>
             </section>
 
             <!-- 댓글입력폼 -->

@@ -13,6 +13,8 @@ public class MemberBean {
 	private String zip;
 	private String addr1;
 	private String addr2;
+	private String regip;
+	private String rdate;
 	
 	public String getUid() {
 		return uid;
@@ -86,6 +88,5 @@ public class MemberBean {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
-	private String regip;
-	private String rdate;
+	
 }

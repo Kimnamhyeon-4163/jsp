@@ -1,3 +1,4 @@
+<%@page import="kr.co.jboard1.dao.UserDao"%>
 <%@page import="kr.co.jboard1.bean.TermsBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -5,40 +6,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	//DB 정보
-	String host = "jdbc:mysql://192.168.10.114:3306/knh";
-	String user = "knh";
-	String pass = "1234";
-	//1단계
-	Class.forName("com.mysql.jdbc.Driver");
-	//2단계
-	Connection conn = DriverManager.getConnection(host, user, pass);
-	//3단계
-	Statement stmt = conn.createStatement();
-	//4단계
-	String sql = "SELECT * FROM `JBOARD_TEAMS`;";
-	
-	ResultSet rs = stmt.executeQuery(sql);
-	
-	//5단계
-	TermsBean tb = new TermsBean();
-	
-	if(rs.next()){
-		String	terms =rs.getString(1);
-		String	privacy =rs.getString(2);
-		
-		
-		tb.setTerms(terms);
-		tb.setPrivacy(privacy);	
-	}
-	
-	//6단계
-	
-	rs.close();
-	conn.close();
-	stmt.close();
-
-
+	TermsBean tb = UserDao.getInstance().selectTerms();
 %>
 
 <!DOCTYPE html>
@@ -46,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>약관</title>
-    <link rel="stylesheet" href="../css/style.css"/>    
+    <link rel="stylesheet" href="/Jboard1/css/style.css"/>    
 </head>
 <body>
     <div id="wrapper">
