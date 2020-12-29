@@ -322,6 +322,10 @@ body {}
     text-align: right;
 }
 
+#board.view .disable {
+	display: none;
+}
+
 /* 게시판-글쓰기 */
 #board.write {}
 #board.write form > div {

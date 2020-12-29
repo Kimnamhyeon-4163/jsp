@@ -15,6 +15,9 @@ public class ArticleBean {
 	private String rdate;
 	private String nick;
 	
+	private String oldName;
+	private int download;
+	
 	public String getNick() {
 		return nick;
 	}
@@ -32,6 +35,9 @@ public class ArticleBean {
 	}
 	public void setParent(int parent) {
 		this.parent = parent;
+	}
+	public void setParent(String parent){
+		this.parent = Integer.parseInt(parent);
 	}
 	public int getComment() {
 		return comment;
@@ -86,6 +92,19 @@ public class ArticleBean {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	public String getOldName() {
+		return oldName;
+	}
+	public void setOldName(String oldName) {
+		this.oldName = oldName;
+	}
+	
+	public int getDownload() {
+		return download;
+	}
+	public void setDownload(int download) {
+		this.download = download;
 	}
 	
 }

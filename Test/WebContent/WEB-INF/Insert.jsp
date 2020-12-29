@@ -34,7 +34,7 @@
 	//4단계 SQL 실행
 	
 	String sql = "INSERT INTO `EMPLOYEE` VALUES('"+uid+"', '"+name+"', '"+gender+"', '"+hp+"', '"+email+"', '"+pos+"', '"+dep+"', NOW());";
-	stmt.executeUpdate(sql);
+	stmt.executeQuery(sql);
 	 
 	//5단계 결과셋 처리(SELECT일 경우)
 	

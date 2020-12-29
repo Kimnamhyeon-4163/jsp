@@ -39,7 +39,7 @@
 	stmt.close();
 	conn.close();
 	//리다이렉트
-	response.sendRedirect("/Ch09/employee/list.jsp");
+	response.sendRedirect("/Test/employee/list.jsp");
 
 
 

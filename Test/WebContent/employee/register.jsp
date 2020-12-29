@@ -1,14 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>직원등록</title>
 </head>
 <body>
 	<h3>직원등록</h3>
-	<form action="../Insert2.jsp" method="get">
+	<form action="/Test/Insert.jsp">
 	<table border="1">
 		<tr>
 			<td>아이디</td>
@@ -59,7 +58,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
-			<input type="submit" value="등록하기"/>
+			<input type="submit" value="등록하기" />
 			</td>
 		</tr>
 	

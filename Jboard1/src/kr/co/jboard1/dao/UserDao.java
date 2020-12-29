@@ -23,6 +23,40 @@ public class UserDao {
 	private Statement 			stmt=null;
 	private ResultSet 			rs=null;
 
+	public int	selectCountUser(String uid) throws Exception{
+		conn = DBConfig.getInstance().getConnection();
+		stmt = conn.createStatement();
+		
+		String sql = "SELECT COUNT(*) FROM `JBOARD_MEMBER` WHERE `uid`='"+uid+"';";
+		rs = stmt.executeQuery(sql);
+		
+		int count = 0;
+		
+		if(rs.next()) {
+			count = rs.getInt(1);
+		}
+
+		close();
+		
+		return count;
+	}
+	public int selectCountNick(String nick) throws Exception {
+		conn = DBConfig.getInstance().getConnection();
+		stmt = conn.createStatement();
+		
+		String sql = "SELECT COUNT(*) FROM `JBOARD_MEMBER` WHERE `nick`='"+nick+"';";
+		rs = stmt.executeQuery(sql);
+		
+		int count = 0;
+		
+		if(rs.next()) {
+			count = rs.getInt(1);
+		}
+		
+		close();
+		
+		return count;
+	}
 	public void insertUser(MemberBean mb) throws Exception {
 		
 		conn = DBConfig.getInstance().getConnection();
@@ -109,9 +143,7 @@ public class UserDao {
 		}
 		
 		//6´Ü°è
-		rs.close();
-		conn.close();
-		stmt.close();
+		close();
 		
 		return tb;
 

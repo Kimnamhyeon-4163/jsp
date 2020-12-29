@@ -14,7 +14,9 @@
 <head>
     <meta charset="UTF-8">
     <title>약관</title>
-    <link rel="stylesheet" href="/Jboard1/css/style.css"/>    
+    <link rel="stylesheet" href="/Jboard1/css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/Jboard1/js/termsCheck.js"></script> 
 </head>
 <body>
     <div id="wrapper">
@@ -43,7 +45,7 @@
             </table>
             <div>
                 <a href="/Jboard1/user/login.jsp">취소</a>
-                <a href="/Jboard1/user/register.jsp">다음</a>
+                <a href="/Jboard1/user/register.jsp" class="next">다음</a>
             </div>
         </section>
     </div>

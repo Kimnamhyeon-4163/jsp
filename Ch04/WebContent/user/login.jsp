@@ -19,7 +19,7 @@
 		-데이터(파라미터) 요청메세지에 삽입되어 전송
 	 -->
 	<h3>로그인</h3>
-	<form action="../4_1_Register.jsp" method="post">
+	<form action="../4_1_Request.jsp" method="get">
 		<table border="1">
 			<tr>
 				<td>아이디</td>
@@ -31,9 +31,19 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-				<input type="submit" value="로그인"/>
+					<input type="submit" value="로그인"/>
 				</td>
 			</tr>
+			
+		</table>
+		</form>
+		<form action="/Ch04/user/register.jsp" method="get">
+		<table border="1">
+		<tr>
+				<td colspan="2" align="right">
+					<input type="submit" value="회원가입하기"/>
+				</td>
+		</tr>
 		</table>
 	</form>
 </body>

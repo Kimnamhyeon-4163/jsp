@@ -11,8 +11,6 @@
 	String host = "jdbc:mysql://192.168.10.114:3306/knh";
 	String user = "knh";
 	String pass = "1234";
-
-	
 	//1단계
 	Class.forName("com.mysql.jdbc.Driver");
 	//2단계

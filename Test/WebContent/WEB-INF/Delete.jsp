@@ -36,7 +36,7 @@
 	conn.close();
 	
 	//리다이렉트
-	response.sendRedirect("./employee/list2.jsp");
+	response.sendRedirect("/Test/employee/list2.jsp");
 	
 
 %>
